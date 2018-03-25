@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">TareaAndroid1</string>
+    <string name="login">Log in</string>
+    <string name="logout">Logout</string>
+    <string name="registrar">Registrarse</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="esta_seguro">Está seguro?</string>
+    <string name="si">Si</string>
+    <string name="no">No</string>
+    <string name="correo">Correo</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="usuario">Usuario</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="repetir_contraseña">Repetir contraseña</string>
+    <string name="documento">Documento</string>
+    <string name="telefono">Teléfono</string>
+    <string name="direccion">Dirección</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="rol">Rol</string>
+    <string name="seleccionar_fecha">Seleccionar Fecha</string>
+    <string name="bienvenido">Bienvenido</string>
+    <string name="error_login">Error al loguear: El usuario que ingreso no existe o la contraseña es erronea.</string>
+</resources>
