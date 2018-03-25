@@ -27,6 +27,12 @@
             android:inputType="text"/>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/changable_text_user">
+        </TextView>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -53,6 +59,12 @@
             android:id="@+id/repetir_pass_input"
             android:maxLines="1"
             android:inputType="text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/changable_text_pass">
+        </TextView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -154,14 +166,35 @@
 
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_persona">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_cliente"
+                android:text="@string/client">
+            </RadioButton>
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radio_empleado"
+                android:text="@string/employee">
+            </RadioButton>
 
         </RadioGroup>
 
         <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/siguiente"
+        android:onClick="siguiente"/>
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/siguiente"/>
+            android:text="@string/goback_menu"/>
 
     </LinearLayout>
     </ScrollView>
