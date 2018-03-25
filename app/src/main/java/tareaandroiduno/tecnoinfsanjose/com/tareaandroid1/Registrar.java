@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class Registrar extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class Registrar extends AppCompatActivity {
             changable_text_user.setText(R.string.usuario_existe);
         }
         else{
+            changable_text_user.setText("");
             EditText contraseña = findViewById(R.id.pass_input);
             String contraseña_text = contraseña.getText().toString();
 
@@ -39,6 +43,7 @@ public class Registrar extends AppCompatActivity {
             String repetir_contraseña_text = repetir_contraseña.getText().toString();
 
             if(contraseña_text.equals(repetir_contraseña_text)){
+                changable_text_pass.setText("");
                 EditText correo = findViewById(R.id.correo_input);
                 String correo_text = correo.getText().toString();
 
@@ -63,17 +68,25 @@ public class Registrar extends AppCompatActivity {
                 tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol rol;
                 RadioGroup radio_group = findViewById(R.id.radio_persona);
                 int radio_button_checked_id = radio_group.getCheckedRadioButtonId();
+                Persona persona;
 
                 if(radio_button_checked_id == R.id.radio_cliente){
                     rol = tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol.CLIENTE;
+                    persona = new Cliente(usuario_text, contraseña_text, rol, correo_text, nombre_text,
+                                            apellido_text, documento_text, telefono_text, direccion_text,
+                                            ciudad_text, null);
                 }
-                else
+                else{
                     rol = tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol.EMPLEADO;
+                    persona = new Empleado(usuario_text, contraseña_text, rol, correo_text, nombre_text,
+                            apellido_text, documento_text, telefono_text, direccion_text,
+                            ciudad_text);
+                }
 
-                Persona persona = new Cliente(usuario_text, contraseña_text, rol, correo_text,
-                                              nombre_text, apellido_text, documento_text, telefono_text,
-                                              direccion_text, ciudad_text);
                 manejador.agregar_persona(persona);
+                HashMap<String, Persona> personas = manejador.getPersonas();
+                int pepes = personas.size();
+                Toast.makeText(this, "Cantidad de pepes: " + pepes, Toast.LENGTH_SHORT).show();
             }
             else{
                 changable_text_pass.setText(R.string.pass_dont_match);

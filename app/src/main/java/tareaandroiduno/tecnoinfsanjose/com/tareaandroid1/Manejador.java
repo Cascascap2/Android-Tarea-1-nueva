@@ -1,10 +1,13 @@
 package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+import android.content.Context;
+import android.widget.Toast;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-public class Manejador {
+public class Manejador{
 
     HashMap<String, Persona> Personas = new HashMap<String, Persona>();
     HashMap<Date, Cliente> Reservas = new HashMap<Date, Cliente>();
@@ -48,4 +51,23 @@ public class Manejador {
         this.Personas.remove(persona.getLogin());
     }
 
+    public HashMap<String, Persona> getPersonas() {
+        return Personas;
+    }
+
+    public void setPersonas(HashMap<String, Persona> personas) {
+        Personas = personas;
+    }
+
+    public HashMap<Date, Cliente> getReservas() {
+        return Reservas;
+    }
+
+    public void setReservas(HashMap<Date, Cliente> reservas) {
+        Reservas = reservas;
+    }
+
+    public static void setInstance(Manejador instance) {
+        Manejador.instance = instance;
+    }
 }
