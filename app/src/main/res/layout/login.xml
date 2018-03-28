@@ -22,8 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/usuario"
-            android:layout_marginTop="40dp"/>
+            android:text="@string/usuario_login"
+            android:layout_marginTop="40dp"
+            android:labelFor="@+id/user_input"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -36,8 +37,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/contraseña"
-            android:layout_marginTop="30dp"/>
+            android:text="@string/contraseña_login"
+            android:layout_marginTop="30dp"
+            android:labelFor="@+id/pass_input"/>
 
         <EditText
             android:layout_width="match_parent"

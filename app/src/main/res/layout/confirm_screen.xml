@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative_layout_confirm">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/esta_seguro"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/esta_seguro"
+            android:textSize="30sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/si"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/esta_seguro"
+            android:layout_below="@+id/esta_seguro"
+            android:text="@string/si"
+            android:textSize="30sp"
+            android:layout_marginTop="20sp">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no"
+            android:id="@+id/no"
+            android:layout_below="@+id/esta_seguro"
+            android:layout_alignEnd="@+id/esta_seguro"
+            android:textSize="30sp"
+            android:layout_marginTop="20sp">
+        </TextView>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

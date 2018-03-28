@@ -2,16 +2,22 @@ package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
 import android.content.Context;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 public class Manejador{
 
-    HashMap<String, Persona> Personas = new HashMap<String, Persona>();
-    HashMap<Date, Cliente> Reservas = new HashMap<Date, Cliente>();
+    List<Persona> Personas = new ArrayList<Persona>();
+    List<Reserva> Reservas = new ArrayList<Reserva>();
+
     private static Manejador instance = null;
+    private boolean session = false;
+    private Persona logged_persona = null;
 
     protected Manejador() {}
 
@@ -22,19 +28,23 @@ public class Manejador{
         return instance;
     }
 
-    public boolean existe_persona(String usuario){
-        if(this.Personas.containsKey(usuario)){
-            return true;
+    //Returna null si la persona no existe
+    public Persona get_persona(String usuario){
+        Iterator it = this.Personas.iterator();
+        Persona p;
+        while(it.hasNext()){
+            p = (Persona) it.next();
+            if(p.getLogin().equals(usuario)){
+                return p;
+            }
         }
-        else
-            return false;
+        return null;
     }
 
     public boolean confirmar_login(String usuario, String pass){
-        if (this.Personas.containsKey(usuario)){
-            Persona p = this.Personas.get(usuario);
-            String p_pass = p.getPassword();
-            if (pass.equals(p_pass))
+        Persona p = this.get_persona(usuario);
+        if (p!=null){
+            if (pass.equals(p.getPassword()))
                 return true;
             else
                 return false;
@@ -43,31 +53,76 @@ public class Manejador{
             return false;
     }
 
+    public void agregar_Reserva(Reserva r){
+        this.Reservas.add(r);
+    }
+
+    //Returna null si la reserva no existe.
+    public Cliente confirmar_Reserva(int day, int month, int year){
+        Iterator it = this.Reservas.iterator();
+        Cliente c = null;
+        Reserva r = null;
+        while(it.hasNext()){
+            r = (Reserva) it.next();
+            if(r.getDay()==day && r.getMonth()==month && r.getYear()==year){
+                return r.getCliente();
+            }
+        }
+        return null;
+    }
+
+    public void borrar_reserva(int day, int month, int year){
+        Iterator it = this.Reservas.iterator();
+        Reserva r;
+        while(it.hasNext()){
+            r = (Reserva) it.next();
+            if(r.getDay()==day && r.getMonth()==month && r.getYear()==year){
+                this.Reservas.remove(r);
+            }
+        }
+    }
+
     public void agregar_persona(Persona persona){
-        this.Personas.put(persona.getLogin(), persona);
+        this.Personas.add(persona);
     }
 
     public void borrar_persona(Persona persona){
-        this.Personas.remove(persona.getLogin());
+        this.Personas.remove(persona);
     }
 
-    public HashMap<String, Persona> getPersonas() {
-        return Personas;
+    public List<Persona> getPersonas() {
+        return this.Personas;
     }
 
-    public void setPersonas(HashMap<String, Persona> personas) {
+    public void setPersonas(List<Persona> personas) {
         Personas = personas;
     }
 
-    public HashMap<Date, Cliente> getReservas() {
+    public List<Reserva> getReservas() {
         return Reservas;
     }
 
-    public void setReservas(HashMap<Date, Cliente> reservas) {
+    public void setReservas(List<Reserva> reservas) {
         Reservas = reservas;
     }
 
     public static void setInstance(Manejador instance) {
         Manejador.instance = instance;
+    }
+
+    public boolean isSession() {
+        return session;
+    }
+
+    public void setSession(boolean session) {
+        this.session = session;
+    }
+
+    public Persona getLogged_persona() {
+        return logged_persona;
+    }
+
+    public void setLogged_persona(Persona logged_persona) {
+        this.logged_persona = logged_persona;
     }
 }
