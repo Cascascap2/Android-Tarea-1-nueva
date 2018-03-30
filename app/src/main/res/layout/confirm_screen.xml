@@ -1,44 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/white">
 
     <RelativeLayout
+        android:id="@+id/relative_layout_confirm"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/relative_layout_confirm">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
 
         <TextView
+            android:id="@+id/esta_seguro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/esta_seguro"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/esta_seguro"
+            android:text="@string/esta_seguro"
             android:textSize="30sp">
+
         </TextView>
 
-        <TextView
+        <Button
             android:id="@+id/si"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/esta_seguro"
             android:layout_below="@+id/esta_seguro"
+            android:layout_marginTop="20sp"
+            android:onClick="confirm_yes"
             android:text="@string/si"
-            android:textSize="30sp"
-            android:layout_marginTop="20sp">
-        </TextView>
+            android:textSize="25sp"
+            android:background="@color/orange">
 
-        <TextView
+        </Button>
+
+        <Button
+            android:id="@+id/no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/no"
-            android:id="@+id/no"
-            android:layout_below="@+id/esta_seguro"
             android:layout_alignEnd="@+id/esta_seguro"
-            android:textSize="30sp"
-            android:layout_marginTop="20sp">
-        </TextView>
+            android:layout_below="@+id/esta_seguro"
+            android:layout_marginTop="20sp"
+            android:onClick="confirm_no"
+            android:text="@string/no"
+            android:textSize="25sp"
+            android:background="@color/orange">
+
+        </Button>
 
     </RelativeLayout>
 

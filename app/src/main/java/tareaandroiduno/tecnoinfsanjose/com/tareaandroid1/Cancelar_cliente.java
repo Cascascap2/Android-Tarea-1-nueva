@@ -1,6 +1,7 @@
 package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ public class Cancelar_cliente extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cancelar_cliente);
 
+
         String day = getIntent().getStringExtra("dia");
         String month = getIntent().getStringExtra("mes");
         String year = getIntent().getStringExtra("año");
@@ -31,13 +33,26 @@ public class Cancelar_cliente extends AppCompatActivity {
         año = Integer.parseInt(year);
     }
 
-    public void cancelar_reserva(View view){
+    public void confirm_yes(View view){
+        setContentView(R.layout.cancelar_cliente);
+        cancelar_reserva();
+    }
 
-        //LayoutInflater inflater = getLayoutInflater();
-        //View toast_view = inflater.inflate(R.layout.confirm_screen, (ViewGroup) findViewById(R.id.repetir_pass_input));
+    public void confirm_no(View view){
+        setContentView(R.layout.cancelar_cliente);
+    }
 
+    public void cr(View view){
+        LayoutInflater inflater = getLayoutInflater();
+        View toast_view = inflater.inflate(R.layout.confirm_screen, null);
+        setContentView(toast_view);
+    }
+
+    public void cancelar_reserva(){
         Manejador manejador = Manejador.getInstance();
         manejador.borrar_reserva(dia, mes, año);
         Toast.makeText(this, "Reserva cancelada", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(Cancelar_cliente.this, Home_empleado.class);
+        startActivity(i);
     }
 }

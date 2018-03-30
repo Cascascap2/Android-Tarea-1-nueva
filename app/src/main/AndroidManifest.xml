@@ -24,4 +24,5 @@
         <activity android:name=".Cancelar_cliente"></activity>
     </application>
 
+
 </manifest>

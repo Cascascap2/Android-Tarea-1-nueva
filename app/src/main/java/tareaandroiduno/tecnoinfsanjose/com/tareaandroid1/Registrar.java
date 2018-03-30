@@ -106,5 +106,9 @@ public class Registrar extends AppCompatActivity {
         }
     }
 
+    public void goBackButton(View view){
+        finish();
+    }
+
 
 }

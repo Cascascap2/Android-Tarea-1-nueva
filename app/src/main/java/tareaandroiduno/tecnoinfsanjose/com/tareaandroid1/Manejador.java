@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class Manejador{
 
-    List<Persona> Personas = new ArrayList<Persona>();
-    List<Reserva> Reservas = new ArrayList<Reserva>();
+    private List<Persona> Personas = new ArrayList<Persona>();
+    private List<Reserva> Reservas = new ArrayList<Reserva>();
 
     private static Manejador instance = null;
     private boolean session = false;
@@ -78,40 +78,13 @@ public class Manejador{
             r = (Reserva) it.next();
             if(r.getDay()==day && r.getMonth()==month && r.getYear()==year){
                 this.Reservas.remove(r);
+                return;
             }
         }
     }
 
     public void agregar_persona(Persona persona){
         this.Personas.add(persona);
-    }
-
-    public void borrar_persona(Persona persona){
-        this.Personas.remove(persona);
-    }
-
-    public List<Persona> getPersonas() {
-        return this.Personas;
-    }
-
-    public void setPersonas(List<Persona> personas) {
-        Personas = personas;
-    }
-
-    public List<Reserva> getReservas() {
-        return Reservas;
-    }
-
-    public void setReservas(List<Reserva> reservas) {
-        Reservas = reservas;
-    }
-
-    public static void setInstance(Manejador instance) {
-        Manejador.instance = instance;
-    }
-
-    public boolean isSession() {
-        return session;
     }
 
     public void setSession(boolean session) {
