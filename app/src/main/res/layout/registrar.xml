@@ -22,14 +22,16 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:src="@drawable/gobackarrow"
-                android:onClick="goBackButton"/>
+                android:onClick="goBackButton"
+                android:background="@color/colorPrimary"/>
 
             <ImageButton
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:src="@drawable/goforwardarrow"
                 android:layout_alignParentEnd="true"
-                android:onClick="siguiente"/>
+                android:onClick="siguiente"
+                android:background="@color/colorPrimary"/>
         </RelativeLayout>
 
 
