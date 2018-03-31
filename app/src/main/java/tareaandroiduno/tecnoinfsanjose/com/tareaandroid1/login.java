@@ -38,14 +38,18 @@ public class login extends AppCompatActivity {
                 manejador.setSession(true);
                 Cliente c = (Cliente) p;
                 manejador.setLogged_persona(c);
-                i = new Intent(login.this, Home_cliente.class);
+                //i = new Intent(login.this, Home_cliente.class);
+                i = new Intent(login.this, Loading.class);
+                i.putExtra("home_type", "cliente");
                 startActivity(i);
             }
             else{
                 manejador.setSession(true);
                 Empleado e = (Empleado) p;
                 manejador.setLogged_persona(e);
-                i = new Intent(login.this, Home_empleado.class);
+                i = new Intent(login.this, Loading.class);
+                i.putExtra("home_type", "empleado");
+                //i = new Intent(login.this, Home_empleado.class);
                 startActivity(i);
             }
         }

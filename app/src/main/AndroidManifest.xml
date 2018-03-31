@@ -22,6 +22,7 @@
         <activity android:name=".Home_empleado"></activity>
         <activity android:name=".Confirmar_cliente"></activity>
         <activity android:name=".Cancelar_cliente"></activity>
+        <activity android:name=".Loading"></activity>
     </application>
 
 
