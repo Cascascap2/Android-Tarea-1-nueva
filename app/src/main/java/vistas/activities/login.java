@@ -1,4 +1,4 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import controladores.Manejador;
+import controladores.PersonControlador;
 import modelos.Cliente;
 import modelos.Empleado;
 import modelos.Persona;
 import modelos.rol;
-import vistas.activities.Loading;
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class login extends AppCompatActivity {
 
@@ -34,7 +36,8 @@ public class login extends AppCompatActivity {
         TextView changable_text = findViewById(R.id.login_msg);
 
         if(manejador.confirmar_login(usuario, pass)){
-            Persona p =manejador.get_persona(usuario);
+            PersonControlador PC = new PersonControlador();
+            Persona p = PC.get_persona(usuario);
             Intent i;
             if(p.getRol() == rol.CLIENTE){
                 manejador.setSession(true);
