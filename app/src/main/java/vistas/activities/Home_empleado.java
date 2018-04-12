@@ -1,4 +1,4 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import controladores.ReservaControlador;
+import modelos.Cliente;
+import controladores.Manejador;
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class Home_empleado extends AppCompatActivity {
 
@@ -35,7 +40,8 @@ public class Home_empleado extends AppCompatActivity {
     public void confirmar_reservacion(View view){
         if(picked_date){
             Manejador manejador = Manejador.getInstance();
-            Cliente cliente = manejador.confirmar_Reserva(Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
+            ReservaControlador RC = new ReservaControlador();
+            Cliente cliente = RC.confirmar_Reserva(Integer.parseInt(day), Integer.parseInt(month), Integer.parseInt(year));
             if(cliente!=null){
                 Intent i = new Intent(Home_empleado.this, Cancelar_cliente.class);
                 i.putExtra("dia", day);

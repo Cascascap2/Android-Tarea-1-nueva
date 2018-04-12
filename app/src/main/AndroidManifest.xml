@@ -9,20 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="vistas.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".login"></activity>
-        <activity android:name=".Registrar"></activity>
-        <activity android:name=".Home_cliente"></activity>
-        <activity android:name=".Home_empleado"></activity>
-        <activity android:name=".Confirmar_cliente"></activity>
-        <activity android:name=".Cancelar_cliente"></activity>
-        <activity android:name=".Loading"></activity>
+        <activity android:name="vistas.activities.login"></activity>
+        <activity android:name="vistas.activities.Registrar"></activity>
+        <activity android:name="vistas.activities.Home_cliente"></activity>
+        <activity android:name="vistas.activities.Home_empleado"></activity>
+        <activity android:name="vistas.activities.Confirmar_cliente"></activity>
+        <activity android:name="vistas.activities.Cancelar_cliente"></activity>
+        <activity android:name="vistas.activities.Loading"></activity>
     </application>
 
 

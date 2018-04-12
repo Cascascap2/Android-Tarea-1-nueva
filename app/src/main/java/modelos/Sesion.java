@@ -1,4 +1,4 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package modelos;
 
 
 public class Sesion {

@@ -1,6 +1,6 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package modelos;
 
-enum rol{CLIENTE, EMPLEADO};
+;
 
 public class Persona {
     private String login;
@@ -16,7 +16,7 @@ public class Persona {
 
     public Persona(){}
 
-    public Persona(String login, String password, tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol rol,
+    public Persona(String login, String password, modelos.rol rol,
                    String mail, String nombre, String apellido, String documento, String telefono,
                    String direccion, String ciudad){
 
@@ -48,11 +48,11 @@ public class Persona {
         this.password = password;
     }
 
-    public tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol getRol() {
+    public modelos.rol getRol() {
         return rol;
     }
 
-    public void setRol(tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol rol) {
+    public void setRol(modelos.rol rol) {
         this.rol = rol;
     }
 

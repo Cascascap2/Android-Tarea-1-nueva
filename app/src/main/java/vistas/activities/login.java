@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.Iterator;
-import java.util.List;
+import modelos.Cliente;
+import modelos.Empleado;
+import modelos.Persona;
+import modelos.rol;
+import vistas.activities.Loading;
 
 public class login extends AppCompatActivity {
 
@@ -34,7 +36,7 @@ public class login extends AppCompatActivity {
         if(manejador.confirmar_login(usuario, pass)){
             Persona p =manejador.get_persona(usuario);
             Intent i;
-            if(p.getRol() == tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol.CLIENTE){
+            if(p.getRol() == rol.CLIENTE){
                 manejador.setSession(true);
                 Cliente c = (Cliente) p;
                 manejador.setLogged_persona(c);

@@ -1,7 +1,7 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package modelos;
 
 
-import java.util.Date;
+import modelos.Cliente;
 
 public class Reserva {
 

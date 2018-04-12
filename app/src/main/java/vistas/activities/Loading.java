@@ -1,10 +1,12 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class Loading extends AppCompatActivity {
 

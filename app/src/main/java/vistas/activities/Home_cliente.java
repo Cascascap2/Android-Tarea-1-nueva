@@ -1,4 +1,4 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+
+import controladores.Manejador;
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class Home_cliente extends AppCompatActivity {
 

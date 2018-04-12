@@ -1,8 +1,10 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class MainActivity extends AppCompatActivity {
 

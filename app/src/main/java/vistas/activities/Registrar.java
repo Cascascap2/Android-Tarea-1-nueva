@@ -1,23 +1,22 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextWatcher;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import controladores.Manejador;
+import controladores.PersonControlador;
+import modelos.Cliente;
+import modelos.Empleado;
+import modelos.Persona;
+import modelos.rol;
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
 
 public class Registrar extends AppCompatActivity {
 
@@ -30,6 +29,7 @@ public class Registrar extends AppCompatActivity {
 
     public void siguiente(View vie){
         Manejador manejador = Manejador.getInstance();
+        PersonControlador PC = new PersonControlador();
         TextView changable_text_user = findViewById(R.id.changable_text_user);
         TextView changable_text_pass = findViewById(R.id.changable_text_pass);
         TextView changable_text_final = findViewById(R.id.changable_text_final);
@@ -37,7 +37,7 @@ public class Registrar extends AppCompatActivity {
         EditText usuario = findViewById(R.id.user_input);
         String usuario_text = usuario.getText().toString();
 
-        if(manejador.get_persona(usuario_text)!=null && !usuario_text.equals("")){
+        if(PC.get_persona(usuario_text)!=null && !usuario_text.equals("")){
             changable_text_user.setText(R.string.usuario_existe);
         }
         else{
@@ -71,7 +71,7 @@ public class Registrar extends AppCompatActivity {
                 EditText ciudad = findViewById(R.id.ciudad_input);
                 String ciudad_text = ciudad.getText().toString();
 
-                tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol rol;
+                rol rol;
                 RadioGroup radio_group = findViewById(R.id.radio_persona);
                 int radio_button_checked_id = radio_group.getCheckedRadioButtonId();
 
@@ -79,19 +79,19 @@ public class Registrar extends AppCompatActivity {
 
                     Persona persona;
                     if(radio_button_checked_id == R.id.radio_cliente){
-                        rol = tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol.CLIENTE;
-                        persona = new Cliente(usuario_text, contraseña_text, rol, correo_text, nombre_text,
-                                apellido_text, documento_text, telefono_text, direccion_text,
-                                ciudad_text, null);
+                        rol = modelos.rol.CLIENTE;
+                        PC.crearCliente(usuario_text, contraseña_text, rol, correo_text, nombre_text,
+                                                            apellido_text, documento_text, telefono_text, direccion_text,
+                                                            ciudad_text, null);
                     }
                     else{
-                        rol = tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol.EMPLEADO;
-                        persona = new Empleado(usuario_text, contraseña_text, rol, correo_text, nombre_text,
+                        rol = modelos.rol.EMPLEADO;
+                        PC.crearEmpleado(usuario_text, contraseña_text, rol, correo_text, nombre_text,
                                 apellido_text, documento_text, telefono_text, direccion_text,
                                 ciudad_text);
                     }
+
                     String rol_text = rol.toString();
-                    manejador.agregar_persona(persona);
                     Toast.makeText(this, rol_text + " creado con exito", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(Registrar.this, login.class);
                     startActivity(i);

@@ -1,4 +1,4 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package vistas.activities;
 
 
 import android.content.Intent;
@@ -9,7 +9,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Confirmar_cliente extends AppCompatActivity {
+import controladores.Manejador;
+import controladores.ReservaControlador;
+import tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.R;
+
+public class Cancelar_cliente extends AppCompatActivity {
 
     int dia;
     int mes;
@@ -18,12 +22,13 @@ public class Confirmar_cliente extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.confirmar_cliente);
+        setContentView(R.layout.cancelar_cliente);
+
 
         String day = getIntent().getStringExtra("dia");
         String month = getIntent().getStringExtra("mes");
         String year = getIntent().getStringExtra("año");
-        TextView textView = findViewById(R.id.changable_text_confirmar_cliente);
+        TextView textView = findViewById(R.id.changable_text_cancelar_cliente);
         String fecha_string = day + "/" + month + "/" + year;
         textView.setText(fecha_string);
         dia = Integer.parseInt(day);
@@ -32,12 +37,12 @@ public class Confirmar_cliente extends AppCompatActivity {
     }
 
     public void confirm_yes(View view){
-        setContentView(R.layout.confirmar_cliente);
-        confirmar_reserva();
+        setContentView(R.layout.cancelar_cliente);
+        cancelar_reserva();
     }
 
     public void confirm_no(View view){
-        setContentView(R.layout.confirmar_cliente);
+        setContentView(R.layout.cancelar_cliente);
     }
 
     public void cr(View view){
@@ -46,20 +51,11 @@ public class Confirmar_cliente extends AppCompatActivity {
         setContentView(toast_view);
     }
 
-    public void confirmar_reserva(){
-
-        Manejador manejador = Manejador.getInstance();
-        Cliente c = manejador.confirmar_Reserva(dia, mes, año);
-        if(c==null){
-            Cliente cliente = (Cliente) manejador.getLogged_persona();
-            Reserva r = new Reserva(dia, mes, año, cliente);
-            manejador.agregar_Reserva(r);
-            Toast.makeText(this, "Reserva creada con exito.", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(Confirmar_cliente.this, Home_cliente.class);
-            startActivity(i);
-        }
-        else
-            Toast.makeText(this, "Ya existe una reserva este dia", Toast.LENGTH_SHORT).show();
-
+    public void cancelar_reserva(){
+        ReservaControlador RC = new ReservaControlador();
+        RC.borrar_reserva(dia, mes, año);
+        Toast.makeText(this, "Reserva cancelada", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(Cancelar_cliente.this, Home_empleado.class);
+        startActivity(i);
     }
 }

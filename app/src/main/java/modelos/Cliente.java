@@ -1,13 +1,13 @@
-package tareaandroiduno.tecnoinfsanjose.com.tareaandroid1;
+package modelos;
 
 
-public class Cliente extends Persona{
+public class Cliente extends Persona {
 
     Reserva reserva;
 
     public Cliente(){}
 
-    public Cliente(String login, String password, tareaandroiduno.tecnoinfsanjose.com.tareaandroid1.rol rol,
+    public Cliente(String login, String password, rol rol,
                    String mail, String nombre, String apellido, String documento, String telefono,
                    String direccion, String ciudad, Reserva reserva) {
         super(login, password, rol, mail, nombre, apellido, documento, telefono, direccion, ciudad);
