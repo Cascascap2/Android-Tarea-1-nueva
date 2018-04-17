@@ -6,13 +6,14 @@ import java.util.List;
 
 import controladores.daos.PersonaDAO;
 import database.PersonaDB;
+import exceptions.UsuarioException;
 import modelos.Cliente;
 import modelos.Empleado;
 import modelos.Persona;
 import modelos.Reserva;
 import modelos.rol;
 
-public class PersonControlador {
+public class PersonControlador{
 
     //Returna null si la persona no existe
     public Persona get_persona(String usuario){
@@ -31,9 +32,11 @@ public class PersonControlador {
 
     public void crearCliente(String login, String password, rol rol,
                              String mail, String nombre, String apellido, String documento, String telefono,
-                             String direccion, String ciudad, Reserva reserva){
+                             String direccion, String ciudad, Reserva reserva) throws Exception{
 
         //Control de campos
+        if(login.equals("negro")) throw new UsuarioException("El login es negro");
+
 
         Cliente cliente = new Cliente(login, password, rol, mail, nombre, apellido, documento, telefono, direccion, ciudad, reserva);
         PersonaDAO PDAO = new PersonaDAO();

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import controladores.Manejador;
 import controladores.PersonControlador;
+import exceptions.UsuarioException;
 import modelos.Cliente;
 import modelos.Empleado;
 import modelos.Persona;
@@ -80,9 +81,17 @@ public class Registrar extends AppCompatActivity {
                     Persona persona;
                     if(radio_button_checked_id == R.id.radio_cliente){
                         rol = modelos.rol.CLIENTE;
-                        PC.crearCliente(usuario_text, contraseña_text, rol, correo_text, nombre_text,
-                                                            apellido_text, documento_text, telefono_text, direccion_text,
-                                                            ciudad_text, null);
+                        try{
+                            PC.crearCliente(usuario_text, contraseña_text, rol, correo_text, nombre_text,
+                                    apellido_text, documento_text, telefono_text, direccion_text,
+                                    ciudad_text, null);
+                        }//catch(UsuarioException e){
+                        catch(Exception e){
+                            if(e instanceof UsuarioException)
+                                Toast.makeText(this, ((UsuarioException) e).getText(), Toast.LENGTH_SHORT).show();
+
+                        }
+
                     }
                     else{
                         rol = modelos.rol.EMPLEADO;
