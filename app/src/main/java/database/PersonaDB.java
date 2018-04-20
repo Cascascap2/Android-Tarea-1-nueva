@@ -17,9 +17,9 @@ public class PersonaDB {
         return instance;
     }
 
-    private List<Persona> Personas = new ArrayList<Persona>();
+    private ArrayList<Persona> Personas = new ArrayList<Persona>();
 
-    public List<Persona> getPersonas(){
+    public ArrayList<Persona> getPersonas(){
         return this.Personas;
     }
 

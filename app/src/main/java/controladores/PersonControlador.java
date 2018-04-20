@@ -1,6 +1,7 @@
 package controladores;
 
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class PersonControlador{
         personas.remove(p);
     }
 
-    public List<Persona> listarCliente(){
+    public ArrayList<Persona> listarCliente(){
         PersonaDB PDB = PersonaDB.getInstance();
         return PDB.getPersonas();
 

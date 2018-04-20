@@ -34,5 +34,6 @@
     <string name="fecha_sin_elejir">No hay una fecha seleccionada.</string>
     <string name="seleccionar_fecha_home_cliente">Seleccionar Fecha</string>
     <string name="campos_necesarios">Los campos marcados con * son necesarios.</string>
-    <string name="cargando">Cargando, por favor espere..</string>
+    <string name="cargando">Cargando, por favor espere.</string>
+    <string name="user_list">Listar usuarios.</string>
 </resources>

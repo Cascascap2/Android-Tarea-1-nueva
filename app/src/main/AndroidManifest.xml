@@ -23,6 +23,7 @@
         <activity android:name="vistas.activities.Confirmar_cliente"></activity>
         <activity android:name="vistas.activities.Cancelar_cliente"></activity>
         <activity android:name="vistas.activities.Loading"></activity>
+        <activity android:name="vistas.activities.User_list"></activity>
     </application>
 
 

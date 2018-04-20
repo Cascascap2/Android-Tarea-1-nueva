@@ -68,4 +68,9 @@ public class login extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void list_users(View view){
+        Intent i = new Intent(login.this, User_list.class);
+        startActivity(i);
+    }
+
 }
